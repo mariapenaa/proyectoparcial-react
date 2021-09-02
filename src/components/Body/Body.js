@@ -31,7 +31,7 @@ class Body extends Component{
     render(){
         return(
             <main>
-                <button type="button">Cargar más tarjetas </button>
+                <button type="button">Cargar más tarjetas</button>
                 <section class="card-container">
                 {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album}/>)}
                 </section>
