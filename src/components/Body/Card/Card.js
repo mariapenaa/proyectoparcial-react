@@ -4,7 +4,25 @@ import './card.css';
 class Card extends Component{
     constructor(props){
         super(props)
+        this.state={
+            text: 'ver más',
+            viewMore: false,
+        }
     
+    }
+
+    viewMore(){
+        if(this.state.viewMore){
+            this.setState({
+                text: 'ver más',
+                viewMore: false,
+            })
+        }else{
+            this.setState({
+                text: 'ver menos',
+                viewMore: true,
+            })
+        }
     }
 
     render(){
@@ -18,15 +36,16 @@ class Card extends Component{
                     <i className="far fa-window-close"></i>
                 </section>
                 <main>
-                    <img src="./img/image-default.png" alt="" />
-                    <h3>Título/ Nombre</h3>
-                    <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint cumque velit minus facere laboriosam voluptatem impedit ea unde labore optio eius quis, dignissimos expedita. Culpa, soluta perspiciatis! Sint, laboriosam cum.</p>
-                    <section className="aditional-info">
+                    <h3>{this.props.dataAlbum.title}</h3>
+                    <img src={`${this.props.dataAlbum.cover_medium}`} alt="" />
+                    <img src={`${this.props.dataAlbum.artist.picture_small}`} alt="" />
+                    <p className="description">{this.props.dataAlbum.artist.name}</p>
+                    <p className='more' onClick={() => this.viewMore()}>{this.state.text}</p>
+                    <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
                     </section>
-                    <a>Ver más</a>
                 </main>
             </article>
         )
