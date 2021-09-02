@@ -42,8 +42,8 @@ class Card extends Component{
                     <p className="description">{this.props.dataAlbum.artist.name}</p>
                     <p className='more' onClick={() => this.viewMore()}>{this.state.text}</p>
                     <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
                     </section>
                 </main>
             </article>
