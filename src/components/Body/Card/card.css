@@ -5,3 +5,38 @@
 .cardHide{
     display: none;
 }
+
+article {
+    display:flex;
+    flex-direction:column;
+    margin: 15px;
+    border: solid rgb(196, 196, 196);
+    width:20rem;
+}
+
+.artistInfo {
+    display:flex;
+    justify-content: flex-start;
+}
+
+.cardInfo {
+    display:flex;
+    flex-direction:column;
+}
+
+.cardNavigation {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.cardImage {
+    width:100%;
+}
+
+.cardArtistImage {
+    border-radius:50%;
+}
+
+
+

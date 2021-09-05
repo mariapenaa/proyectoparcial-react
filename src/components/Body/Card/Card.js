@@ -8,8 +8,9 @@ class Card extends Component{
             text: 'ver más',
             viewMore: false,
         }
-    
     }
+
+
 
     viewMore(){
         if(this.state.viewMore){
@@ -26,9 +27,10 @@ class Card extends Component{
     }
 
     render(){
+        let {cover_medium, artist} = this.props.dataAlbum
         return(
             <article>
-                <section className="navigation">
+                <section className="cardNavigation">
                     <div>
                         <i className="fas fa-chevron-left"></i>
                         <i className="fas fa-chevron-right"></i>
@@ -37,10 +39,14 @@ class Card extends Component{
                 </section>
                 <main>
                     <h3>{this.props.dataAlbum.title}</h3>
-                    <img src={`${this.props.dataAlbum.cover_medium}`} alt="" />
-                    <img src={`${this.props.dataAlbum.artist.picture_small}`} alt="" />
-                    <p className="description">{this.props.dataAlbum.artist.name}</p>
-                    <p className='more' onClick={() => this.viewMore()}>{this.state.text}</p>
+                    <img className="cardImage" src={`${cover_medium}`} alt="" />
+                    <section className="cardInfo">
+                        <div className="artistInfo">
+                            <img className="cardArtistImage" src={`${artist.picture_small}`} alt="" />
+                            <p className="cardDescription">{artist.name}</p>
+                        </div>
+                        <p className='more' onClick={() => this.viewMore()}>{this.state.text}</p>
+                    </section>
                     <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
                         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
                         <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>

@@ -12,7 +12,7 @@ class Header extends Component{
         return(
             <header>
                 <h1>Título/ Nombre de la app</h1>
-                <section>
+                <section className="header-items">
                     <Filter />
                     <Search />
                 </section>

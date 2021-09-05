@@ -14,9 +14,10 @@ class Body extends Component{
     }
 
     componentDidMount(){
-        let url = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums';
+        let urlChart = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums';
+/*         let urlAlbum = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/302127' */
 
-        fetch(url)
+        fetch(urlChart)
             .then( response => response.json() )
             .then( data => {
                 console.log(data);
@@ -31,9 +32,11 @@ class Body extends Component{
     render(){
         return(
             <main>
-                <button type="button">Cargar más tarjetas </button>
-                <section class="card-container">
-                {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album}/>)}
+                <div className="bodyButton">
+                    <button type="button">Cargar más tarjetas </button>
+                </div>
+                <section class="bodyContainer">
+                    {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album}/>)}
                 </section>
             </main>
         )

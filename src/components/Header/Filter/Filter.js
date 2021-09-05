@@ -9,7 +9,7 @@ class Filter extends Component{
 
     render(){
         return(
-            <div>
+            <div className="filter-items">
                 <p>Ordenar ASC/ DESC</p>
                 <i className="fas fa-th"></i>
                 <i className="fas fa-align-justify"></i>
