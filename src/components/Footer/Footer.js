@@ -14,6 +14,7 @@ class Footer extends Component{
                     <li>Nombre integrante 1</li>
                     <li>Nombre integrante 2</li>
                     <li>Nombre integrante 3</li>
+                    <li>https://cors-anywhere.herokuapp.com/corsdemo</li>
                 </ul>
             </footer>
         )
