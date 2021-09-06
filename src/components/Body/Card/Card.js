@@ -27,7 +27,7 @@ class Card extends Component{
     }
 
     render(){
-        let {cover_medium, artist} = this.props.dataAlbum
+        let {cover_medium, artist, id} = this.props.dataAlbum
         return(
             <article>
                 <section className="cardNavigation">
@@ -35,7 +35,7 @@ class Card extends Component{
                         <i className="fas fa-chevron-left"></i>
                         <i className="fas fa-chevron-right"></i>
                     </div>
-                    <i className="far fa-window-close"></i>
+                    <i className="far fa-window-close" onClick={this.props.remove(id)}></i>
                 </section>
                 <main>
                     <h3>{this.props.dataAlbum.title}</h3>

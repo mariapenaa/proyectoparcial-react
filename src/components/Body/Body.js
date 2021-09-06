@@ -50,8 +50,14 @@ class Body extends Component{
         } )
         .catch( error => console.log(error) )
 
- 
+    }
 
+    borrarTarjeta(tarjetaABorrar){
+        let tarjetasQueQuedan = this.state.album.filter( album => album.id !== tarjetaABorrar);
+
+        this.setState({
+            album: tarjetasQueQuedan
+        })
     }
 
     render(){
@@ -61,7 +67,7 @@ class Body extends Component{
                     <button type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                 </div>
                 <section class="bodyContainer">
-                    {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album}/>)}
+                    {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)}/>)}
                 </section>
             </main>
         )
