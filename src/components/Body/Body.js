@@ -8,13 +8,13 @@ class Body extends Component{
         this.state={
             album: [],
             isLoaded: false,
-            nextUrl: '',
+            nextUrl: 20,
         }
     
     }
 
     componentDidMount(){
-        let urlChart = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums';
+        let urlChart = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums`;
 /*         let urlAlbum = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/302127' */
 
         fetch(urlChart)
@@ -29,11 +29,36 @@ class Body extends Component{
             .catch( error => console.log(error) )
     }
 
+    cargarMas(){
+        let urlMore = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums&top?limit=${this.state.nextUrl}`;
+
+
+        fetch(urlMore)
+        .then( response => response.json() )
+        .then( data => {
+            let newList = data.data.filter(element => element.position > this.state.nextUrl - 10)
+            console.log(newList);
+          /*   this.setState({
+                album: data.data,
+                isLoaded: true,
+            }) */
+            this.setState({
+                nextUrl: this.state.nextUrl+10,
+                isLoaded: true,
+                album: this.state.album.concat(newList)
+            })
+        } )
+        .catch( error => console.log(error) )
+
+ 
+
+    }
+
     render(){
         return(
             <main>
                 <div className="bodyButton">
-                    <button type="button">Cargar más tarjetas </button>
+                    <button type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                 </div>
                 <section class="bodyContainer">
                     {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album}/>)}
