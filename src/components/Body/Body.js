@@ -1,12 +1,14 @@
 import React , {Component} from 'react';
 import './body.css';
 import Card from './Card/Card'
-
+import FilterField from './FilterField/FilterField'
+import Formulario from './Formulario/Formulario'
 class Body extends Component{
     constructor(props){
         super(props)
         this.state={
             album: [],
+            albumesIniciales: [],
             isLoaded: false,
             nextUrl: 20,
         }
@@ -23,6 +25,7 @@ class Body extends Component{
                 console.log(data);
                 this.setState({
                     album: data.data,
+                    albumesIniciales: data.data,
                     isLoaded: true,
                 })
             } )
@@ -59,13 +62,20 @@ class Body extends Component{
             album: tarjetasQueQuedan
         })
     }
-
+    filtrarAlbumes(filtrar){
+        let albumFiltrado = this.state.albumesIniciales.filter(album => album.name.toLowerCase().includes(filtrar.toLowerCase()));
+        this.setState({
+            albumes: albumFiltrado
+        })
+    }
     render(){
         return(
             <main>
                 <div className="bodyButton">
                     <button type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                 </div>
+                <div className=""><FilterField filtrarAlbumes ={(filtrar) =>this.filtrarAlbumes(filtrar)}/></div>
+                <Formulario />
                 <section class="bodyContainer">
                     {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)}/>)}
                 </section>
