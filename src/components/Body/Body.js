@@ -2,7 +2,7 @@ import React , {Component} from 'react';
 import './body.css';
 import Card from './Card/Card'
 import FilterField from './FilterField/FilterField'
-import Formulario from './Formulario/Formulario'
+import Formulario from './Formulario/Formulario.js'
 class Body extends Component{
     constructor(props){
         super(props)
@@ -75,7 +75,7 @@ class Body extends Component{
                     <button type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                 </div>
                 <div className=""><FilterField filtrarAlbumes ={(filtrar) =>this.filtrarAlbumes(filtrar)}/></div>
-                <Formulario />
+                <div className=""><Formulario /></div>
                 <section class="bodyContainer">
                     {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)}/>)}
                 </section>
