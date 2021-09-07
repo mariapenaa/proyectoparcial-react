@@ -38,5 +38,7 @@ article {
     border-radius:50%;
 }
 
-
+.card:hover{
+    box-shadow: 0rem 0rem 10px 8px black;
+    }
 

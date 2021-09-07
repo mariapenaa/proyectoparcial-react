@@ -29,7 +29,7 @@ class Card extends Component{
     render(){
         let {cover_medium, artist, id} = this.props.dataAlbum
         return(
-            <article>
+            <article className='card'>
                 <section className="cardNavigation">
                     <div>
                         <i className="fas fa-chevron-left"></i>

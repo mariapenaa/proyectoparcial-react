@@ -57,9 +57,9 @@ class Body extends Component{
     borrarTarjeta(tarjetaABorrar){
         let tarjetasQueQuedan = this.state.album.filter( album => album.id !== tarjetaABorrar);
 
-        this.setState({
+        /* this.setState({
             album: tarjetasQueQuedan
-        })
+        }) */
     }
   
     render(){
