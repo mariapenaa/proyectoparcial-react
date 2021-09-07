@@ -37,8 +37,8 @@ class Card extends Component{
                     </div>
                     <i className="far fa-window-close" onClick={this.props.remove(id)}></i>
                 </section>
-                <main>
-                    <h3>{this.props.dataAlbum.title}</h3>
+                <main className='cardMain'>
+                    <h3 className='cardTitle'>{this.props.dataAlbum.title}</h3>
                     <img className="cardImage" src={`${cover_medium}`} alt="" />
                     <section className="cardInfo">
                         <div className="artistInfo">

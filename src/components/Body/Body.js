@@ -66,7 +66,7 @@ class Body extends Component{
         return(
             <main>
                 <div className="bodyButton">
-                    <button type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
+                    <button className='bodyCargarMas' type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                 </div>
                 <section class="bodyContainer">
                     {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)}/>)}

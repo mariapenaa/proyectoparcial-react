@@ -1,5 +1,6 @@
 .cardShow{
     display: block;
+    margin-left: 4%;
 }
 
 .cardHide{
@@ -10,8 +11,9 @@ article {
     display:flex;
     flex-direction:column;
     margin: 15px;
-    border: solid rgb(196, 196, 196);
+    background-color: rgba(22, 20, 20, 0.541);
     width:20rem;
+    border-radius: 7%;
 }
 
 .artistInfo {
@@ -22,12 +24,19 @@ article {
 .cardInfo {
     display:flex;
     flex-direction:column;
+    font-family: 'Antonio';
+    margin-left: 4%;
+    margin-top: 4%;
 }
 
 .cardNavigation {
     display:flex;
     flex-direction:row;
     justify-content:space-between;
+    border-radius: 7%;
+    margin-left: 4%;
+    margin-top: 3%;
+    width: 91%;
 }
 
 .cardImage {
@@ -39,6 +48,25 @@ article {
 }
 
 .card:hover{
-    box-shadow: 0rem 0rem 10px 8px black;
-    }
+    box-shadow: 0rem 0rem 10px 8px rgb(75, 73, 73);
+ }
 
+.cardMain{
+        border-radius: 7%;
+        background-color: rgba(22, 20, 20, 0.541);
+}
+
+.cardTitle{
+    font-family: 'Antonio';
+    margin-left: 4%;
+    font-size: 144%;
+}
+
+.cardDescription{
+    margin-left: 5%;
+}
+
+.more:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

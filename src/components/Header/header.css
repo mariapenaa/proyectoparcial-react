@@ -2,7 +2,7 @@ header {
     width:100%;
     display:flex;
     flex-direction:row;
-    background-color:rgb(41, 41, 41);
+    background-color:#cf3476;
     color:white;
     justify-content:space-between;
     align-items:center;
@@ -12,7 +12,19 @@ header {
     width:100%;
     display:flex;
     flex-direction:row;
-    background-color:rgb(41, 41, 41);
+    background-color:#cf3476;
     justify-content: flex-end;
     align-items: center;
+    margin-right: 2%;
+}
+
+.header-title{
+    width: 100%;
+    margin-left: 2%;
+    font-family: 'Antonio';
+}
+
+.filter-items{
+    margin-right: 6%;
+    font-family: 'Antonio';
 }
