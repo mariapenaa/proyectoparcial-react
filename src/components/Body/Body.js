@@ -36,7 +36,7 @@ class Body extends Component{
     }
 
     cargarMas(){
-        let urlMore = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums&top?limit=${this.state.nextUrl}`;
+        let urlMore = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums&top?limit=${this.state.nextUrl}`;
 
 
         fetch(urlMore)
@@ -61,9 +61,9 @@ class Body extends Component{
 
     borrarTarjeta(tarjetaABorrar){
         let tarjetasQueQuedan = this.state.album.filter( a => a.id !== tarjetaABorrar);
-        /* this.setState({
+         this.setState({
             album: tarjetasQueQuedan
-        }) */
+        }) 
     }
     
     searchAlbum(textoAFiltrar){
