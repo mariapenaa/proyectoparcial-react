@@ -16,6 +16,25 @@ article {
     border-radius: 7%;
 }
 
+.gridCard {
+    display:flex;
+    flex-direction:column;
+}
+
+.gridCard .cardImage {
+    width:100%
+}
+
+.colCard {
+    display:flex;
+    flex-direction:row;
+    width:100%;
+}
+
+.colCard .cardImage {
+    width:10%
+}
+
 .artistInfo {
     display:flex;
     justify-content: flex-start;
@@ -30,6 +49,10 @@ article {
 }
 
 .cardNavigation {
+
+}
+
+.cardNavGrid {
     display:flex;
     flex-direction:row;
     justify-content:space-between;
@@ -39,12 +62,18 @@ article {
     width: 91%;
 }
 
-.cardImage {
-    width:100%;
+.cardNavCol {
+    display:flex;
+    flex-direction:column;
 }
+
 
 .cardArtistImage {
     border-radius:50%;
+}
+
+.card {
+    transition: 0.4s;
 }
 
 .card:hover{
@@ -52,7 +81,7 @@ article {
  }
 
 .cardMain{
-        border-radius: 7%;
+        border-radius: 10%;
         background-color: rgba(22, 20, 20, 0.541);
 }
 

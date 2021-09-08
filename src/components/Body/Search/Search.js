@@ -13,9 +13,11 @@ class Search extends Component{
     }
     controlarCambios(cambios){
         this.setState({
-            valor: cambios.target.valor
-        }, ()=> console.log(this.state.valor))
+            valor: cambios.target.value
+        }, () => this.props.searchAlbum(this.state.valor))
     }
+
+    
 
     render(){
         return(

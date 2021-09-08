@@ -4,11 +4,20 @@
     justify-content: flex-end;
 }
 
-.bodyContainer {
+.bodyContainerGrid {
     width:100%;
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content:center;
+    align-items: flex-start;
+}
+
+.bodyContainerCol {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     justify-content:center;
     align-items: flex-start;
 }

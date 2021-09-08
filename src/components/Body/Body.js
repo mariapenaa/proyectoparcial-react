@@ -1,6 +1,9 @@
 import React , {Component} from 'react';
 import './body.css';
-import Card from './Card/Card'
+import Card from './Card/Card';
+import Header from './Header/Header'
+import Search from './Search/Search'
+import Filter from './Filter/Filter'
 
 class Body extends Component{
     constructor(props){
@@ -10,6 +13,7 @@ class Body extends Component{
             albumesIniciales: [],
             isLoaded: false,
             nextUrl: 20,
+            grid:true
         }
     
     }
@@ -47,7 +51,8 @@ class Body extends Component{
             this.setState({
                 nextUrl: this.state.nextUrl+10,
                 isLoaded: true,
-                album: this.state.album.concat(newList)
+                album: this.state.album.concat(newList),
+                albumesIniciales:this.state.album.concat(newList),
             })
         } )
         .catch( error => console.log(error) )
@@ -55,23 +60,53 @@ class Body extends Component{
     }
 
     borrarTarjeta(tarjetaABorrar){
-        let tarjetasQueQuedan = this.state.album.filter( album => album.id !== tarjetaABorrar);
-
+        let tarjetasQueQuedan = this.state.album.filter( a => a.id !== tarjetaABorrar);
         /* this.setState({
             album: tarjetasQueQuedan
         }) */
     }
+    
+    searchAlbum(textoAFiltrar){
+        let albumesFiltrados = this.state.albumesIniciales.filter( album =>  album.title.toLowerCase().includes(textoAFiltrar.toLowerCase()));
+         this.setState({
+            album: albumesFiltrados
+        })   
+    }
+
+    changeOrientation = () =>{
+        if(this.state.grid){
+            this.setState({
+                grid:false
+            })
+        }else {
+            this.setState({
+                grid:true
+            })
+        }
+        console.log(this.state.grid)
+    }
+
+
   
     render(){
         return(
-            <main>
-                <div className="bodyButton">
-                    <button className='bodyCargarMas' type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
-                </div>
-                <section class="bodyContainer">
-                    {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)}/>)}
-                </section>
-            </main>
+            <React.Fragment>
+                <header>
+                    <h1 className='header-title'>Título/ Nombre de la app</h1>
+                    <section className="header-items">
+                        <Filter changeOrientation={()=>this.changeOrientation()} />
+                        <Search  searchAlbum={(textoAFiltrar)=>this.searchAlbum(textoAFiltrar)}/>
+                    </section>
+                </header>
+                <main>
+                    <div className="bodyButton">
+                        <button className='bodyCargarMas' type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
+                    </div>
+                    <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
+                        {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)}/>)}
+                    </section>
+                </main>
+            </React.Fragment>
         )
     }
 }
