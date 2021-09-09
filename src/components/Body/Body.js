@@ -113,7 +113,7 @@ class Body extends Component{
         return(
             <React.Fragment>
                 <header>
-                <h1 className='header-title'>Be Musik</h1>
+                    <img className='logo' src='/images/logo2.jpeg'/>
                     <section className="header-items">
                         <Filter changeOrientation={()=>this.changeOrientation()} />
                         <Search  searchAlbum={(textoAFiltrar)=>this.searchAlbum(textoAFiltrar)}/>
