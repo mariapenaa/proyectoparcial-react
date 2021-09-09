@@ -18,7 +18,7 @@ class Card extends Component{
             this.setState({
                 text: 'ver más',
                 viewMore: false,
-            })
+            },()=> this.props.clearInfo())
         }else{
             this.setState({
                 text: 'ver menos',

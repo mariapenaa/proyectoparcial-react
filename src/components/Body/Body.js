@@ -102,6 +102,11 @@ class Body extends Component{
 
     
     }
+     clearInfo(){
+         this.setState({
+             infoAlbum: {}
+         })
+     }
 
   
     render(){
@@ -119,7 +124,7 @@ class Body extends Component{
                         <button className='bodyCargarMas' type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                     </div>
                     <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
-                        {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} dataInfo={this.state.infoAlbum} grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} loadInfo={(id)=> this.viewMore(id)}/>)}
+                        {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} loadInfo={(id)=> this.viewMore(id)} clearInfo={()=> this.clearInfo()}/>)}
                     </section>
                     
                 </main>
