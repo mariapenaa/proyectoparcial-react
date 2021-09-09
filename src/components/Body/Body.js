@@ -13,7 +13,8 @@ class Body extends Component{
             albumesIniciales: [],
             isLoaded: false,
             nextUrl: 20,
-            grid:true
+            grid:true,
+            infoAlbum: [],
         }
     
     }
@@ -62,8 +63,9 @@ class Body extends Component{
     borrarTarjeta(tarjetaABorrar){
         let tarjetasQueQuedan = this.state.album.filter( a => a.id !== tarjetaABorrar);
          this.setState({
-            album: tarjetasQueQuedan
-        }) 
+          album: tarjetasQueQuedan, 
+          albumesIniciales: tarjetasQueQuedan
+     }) 
     }
     
     searchAlbum(textoAFiltrar){
@@ -85,14 +87,28 @@ class Body extends Component{
         }
         console.log(this.state.grid)
     }
+    viewMore(id){
+        let urlView = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${id}`
+        fetch(urlView)
+        .then( response => response.json() )
+        .then( data => {
+           this.setState({
+               infoAlbum:data
+           }) 
+           console.log(this.state.infoAlbum)
+        } )
 
+        .catch( error => console.log(error) )
+
+    
+    }
 
   
     render(){
         return(
             <React.Fragment>
                 <header>
-                    <h1 className='header-title'>Título/ Nombre de la app</h1>
+                <h1 className='header-title'>Be Musik</h1>
                     <section className="header-items">
                         <Filter changeOrientation={()=>this.changeOrientation()} />
                         <Search  searchAlbum={(textoAFiltrar)=>this.searchAlbum(textoAFiltrar)}/>
@@ -103,8 +119,9 @@ class Body extends Component{
                         <button className='bodyCargarMas' type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                     </div>
                     <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
-                        {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)}/>)}
+                        {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} dataInfo={this.state.infoAlbum} grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} loadInfo={(id)=> this.viewMore(id)}/>)}
                     </section>
+                    
                 </main>
             </React.Fragment>
         )

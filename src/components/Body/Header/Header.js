@@ -12,7 +12,7 @@ class Header extends Component{
     render(){
         return(
             <header>
-                <h1 className='header-title'>Título/ Nombre de la app</h1>
+                <h1 className='header-title'> BeMusik </h1>
                 <section className="header-items">
                     <Filter  />
                     <Search  />
