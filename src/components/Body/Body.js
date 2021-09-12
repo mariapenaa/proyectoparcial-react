@@ -1,7 +1,6 @@
 import React , {Component} from 'react';
 import './body.css';
 import Card from './Card/Card';
-import Header from './Header/Header'
 import Search from './Search/Search'
 import Filter from './Filter/Filter'
 
