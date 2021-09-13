@@ -7,11 +7,8 @@ class Card extends Component{
         this.state={
             text: 'ver más',
             viewMore: false,
-    
         }
     }
-
-
 
     viewMore(id){
         if(this.state.viewMore){
@@ -28,34 +25,35 @@ class Card extends Component{
     }
 
     render(){
-        let {cover_medium, artist, id} = this.props.dataAlbum
-        return(
-            <article className={`card ${this.props.grid ? 'gridCard' : 'colCard'}`}>
-                <section className={`cardNavigation ${this.props.grid ? 'cardNavGrid' : 'cardNavCol'}`}>
-                    <div>
-                        <i className="fas fa-chevron-left"></i>
-                        <i className="fas fa-chevron-right"></i>
-                    </div>
-                    <i className="far fa-window-close" onClick={()=>this.props.remove(id)}></i>
-                </section>
-                <main className={`cardMain ${this.props.grid ? 'gridCard' : 'colCard'}`}>
-                    <img className="cardImage" src={`${cover_medium}`} alt="" />
-                    <h3 className='cardTitle'>{this.props.dataAlbum.title}</h3>
-                    <section className="cardInfo">
-                        <div className="artistInfo">
-                            <img className="cardArtistImage" src={`${artist.picture_small}`} alt="" />
-                            <p className="cardDescription">{artist.name}</p>
+        let {cover_medium, artist, id} = this.props.dataAlbum;
+            return(
+                <article className={`card ${this.props.grid ? 'gridCard' : 'colCard'}`}>
+                    <section className={`cardNavigation ${this.props.grid ? 'cardNavGrid' : 'cardNavCol'}`}>
+                        <div>
+                            <i className="fas fa-chevron-left"></i>
+                            <i className="fas fa-chevron-right"></i>
                         </div>
-                        <p className='more' onClick={() => this.viewMore(id)}>{this.state.text}</p>
+                        <i className="far fa-window-close" onClick={()=>this.props.remove(id)}></i>
                     </section>
-                    <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
-                     <p> Fans: {this.props.dataInfo.fans}</p>
-                    <p> Tracks: {this.props.dataInfo.nb_tracks}</p>
-                    <p>Release Date: {this.props.dataInfo.release_date}</p>
-                    </section>
-                </main>
-            </article>
-        )
+                    <main className={`cardMain ${this.props.grid ? 'gridCard' : 'colCard'}`}>
+                        <img className="cardImage" src={`${cover_medium}`} alt="" />
+                        <h3 className='cardTitle'>{this.props.dataAlbum.title}</h3>
+                        <section className="cardInfo">
+                            <div className="artistInfo">
+                                <img className="cardArtistImage" src={`${artist.picture_small}`} alt="" />
+                                <p className="cardDescription">{artist.name}</p>
+                            </div>
+                            <p className='more' onClick={() => this.viewMore(id)}>{this.state.text}</p>
+                        </section>
+                        <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
+                         <p>{artist.name} has {this.props.dataAlbum.info ? this.props.dataAlbum.info.fans : ''} fans.</p>
+                        <p>Tracks: {this.props.dataAlbum.info ? this.props.dataAlbum.info.nb_tracks : ''}</p>
+                        <p>Release Date: {this.props.dataAlbum.info ? this.props.dataAlbum.info.release_date : ''}</p>
+                        <p>Genre{this.props.dataAlbum.info ? this.props.dataAlbum.info.genres.data[0].name : ''}</p>
+                        </section>
+                    </main>
+                </article>
+            )
     }
 }
 
