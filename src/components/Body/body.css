@@ -46,7 +46,7 @@ header {
     width:100%;
     display:flex;
     flex-direction:row;
-    background-color:#cf3476;
+    background-color:#E53296;
     color:white;
     justify-content:space-between;
     align-items:center;
@@ -56,7 +56,7 @@ header {
     width:100%;
     display:flex;
     flex-direction:row;
-    background-color:#cf3476;
+    background-color:#E53296;
     justify-content: flex-end;
     align-items: center;
     margin-right: 2%;
