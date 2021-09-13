@@ -31,6 +31,16 @@ class Body extends Component{
                     albumesIniciales: data.data,
                     isLoaded: true,
                 })
+                this.state.album.map(e=>{
+                    fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${e.id}`)
+                    .then( response => response.json() )
+                    .then( data => {
+                        if(e.id==data.id){
+                            e["info"]=data;
+                        }
+                    } )
+                    .catch( error => console.log(error) )
+                })
             } )
             .catch( error => console.log(error) )
     }

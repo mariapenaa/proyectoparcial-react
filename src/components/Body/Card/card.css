@@ -28,11 +28,23 @@ article {
 .colCard {
     display:flex;
     flex-direction:row;
+    box-sizing: border-box;
     width:100%;
     align-items:center;
-
+ 
 }
-
+.cardText{
+    display: flex;
+    flex-direction:row;
+    width:85%;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.colCardMain{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .colCard .cardImage {
     width:10%
 }

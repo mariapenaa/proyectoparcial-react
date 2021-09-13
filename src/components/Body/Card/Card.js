@@ -30,29 +30,30 @@ class Card extends Component{
     render(){
         let {cover_medium, artist, id} = this.props.dataAlbum
         return(
-            <article className={`card ${this.props.grid ? 'gridCard' : 'colCard'}`}>
+            <article className={`card ${this.props.grid ? 'gridCard' : 'colCardMain'}`}>
                 <section className={`cardNavigation ${this.props.grid ? 'cardNavGrid' : 'cardNavCol'}`}>
                     <div>
-                        <i className="fas fa-chevron-left"></i>
-                        <i className="fas fa-chevron-right"></i>
+                       
                     </div>
                     <i className="far fa-window-close" onClick={()=>this.props.remove(id)}></i>
                 </section>
                 <main className={`cardMain ${this.props.grid ? 'gridCard' : 'colCard'}`}>
                     <img className="cardImage" src={`${cover_medium}`} alt="" />
+                    <div className={` ${this.props.grid ? '' : 'cardText'}`}>
                     <h3 className='cardTitle'>{this.props.dataAlbum.title}</h3>
                     <section className="cardInfo">
                         <div className="artistInfo">
                             <img className="cardArtistImage" src={`${artist.picture_small}`} alt="" />
                             <p className="cardDescription">{artist.name}</p>
                         </div>
-                        <p className='more' onClick={() => this.viewMore(id)}>{this.state.text}</p>
+                        <p className='more' onClick={() => this.viewMore(id)}>{this.state.text}</p> 
                     </section>
                     <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
                      <p> Fans: {this.props.dataInfo.fans}</p>
                     <p> Tracks: {this.props.dataInfo.nb_tracks}</p>
                     <p>Release Date: {this.props.dataInfo.release_date}</p>
                     </section>
+                    </div>
                 </main>
             </article>
         )
