@@ -70,3 +70,16 @@ header {
     margin-right: 6%;
     font-family: 'Antonio';
 }
+
+.filter-items:hover{
+    cursor: pointer;
+}
+
+.fa-window-close:before {
+    content: "\f410";
+    cursor: pointer;
+}
+
+.bodyCargarMas:hover{
+    cursor:pointer
+}
