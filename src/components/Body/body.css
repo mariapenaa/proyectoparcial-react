@@ -1,6 +1,7 @@
 .bodyButton {
     width:100%;
     display:flex;
+    margin-bottom: 1%;
     justify-content: flex-end;
 }
 
@@ -36,6 +37,9 @@ main {
     margin-right: 4%;
     margin-top: 1.3%;
     margin-bottom: 0.5%;
+    width: 14%;
+    font-size: medium;
+    font-family: 'Antonio';
 }
 
 .logo{
@@ -46,7 +50,7 @@ header {
     width:100%;
     display:flex;
     flex-direction:row;
-    background-color:#cf3476;
+    background-color: #E53097;
     color:white;
     justify-content:space-between;
     align-items:center;
@@ -56,7 +60,7 @@ header {
     width:100%;
     display:flex;
     flex-direction:row;
-    background-color:#cf3476;
+    background-color:#E53097;
     justify-content: flex-end;
     align-items: center;
     margin-right: 2%;

@@ -36,8 +36,10 @@ class Card extends Component{
                         <i className="far fa-window-close" onClick={()=>this.props.remove(id)}></i>
                     </section>
                     <main className={`cardMain ${this.props.grid ? 'gridCard' : 'colCard'}`}>
-                        <img className="cardImage" src={`${cover_medium}`} alt="" />
-                        <h3 className='cardTitle'>{this.props.dataAlbum.title}</h3>
+                        <div className='cardDiv'>
+                            <img className="cardImage" src={`${cover_medium}`} alt=""/>
+                            <h3 className='cardTitle'>{this.props.dataAlbum.title}</h3>
+                        </div>
                         <section className="cardInfo">
                             <div className="artistInfo">
                                 <img className="cardArtistImage" src={`${artist.picture_small}`} alt="" />
@@ -46,10 +48,10 @@ class Card extends Component{
                             <p className='more' onClick={() => this.viewMore(id)}>{this.state.text}</p>
                         </section>
                         <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
-                         <p>{artist.name} has {this.props.dataAlbum.info ? this.props.dataAlbum.info.fans : ''} fans.</p>
-                        <p>Tracks: {this.props.dataAlbum.info ? this.props.dataAlbum.info.nb_tracks : ''}</p>
-                        <p>Release Date: {this.props.dataAlbum.info ? this.props.dataAlbum.info.release_date : ''}</p>
-                        <p>Genre{this.props.dataAlbum.info ? this.props.dataAlbum.info.genres.data[0].name : ''}</p>
+                         <p className='info'>{artist.name} has {this.props.dataAlbum.info ? this.props.dataAlbum.info.fans : ''} fans.</p>
+                        <p className='info'>Tracks: {this.props.dataAlbum.info ? this.props.dataAlbum.info.nb_tracks : ''}</p>
+                        <p className='info'>Release Date: {this.props.dataAlbum.info ? this.props.dataAlbum.info.release_date : ''}</p>
+                        <p className='info'>Genre{this.props.dataAlbum.info ? this.props.dataAlbum.info.genres.data[0].name : ''}</p>
                         </section>
                     </main>
                 </article>

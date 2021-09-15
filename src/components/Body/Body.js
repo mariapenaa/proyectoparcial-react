@@ -143,7 +143,7 @@ class Body extends Component{
         return(
             <React.Fragment>
                 <header>
-                    <img className='logo' src='/images/logo2.jpeg'/>
+                    <img className='logo' src='/images/logo3.jpeg'/>
                     <section className="header-items">
                         <Filter changeOrientation={()=>this.changeOrientation()} />
                         <Search  searchAlbum={(textoAFiltrar)=>this.searchAlbum(textoAFiltrar)}/>
@@ -159,8 +159,7 @@ class Body extends Component{
                     </section>
                     ):(
                         <div><iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
-                    )}
-                    
+                    )} 
                 </main>
             </React.Fragment>
         )
