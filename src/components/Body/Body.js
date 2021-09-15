@@ -36,9 +36,6 @@ class Body extends Component{
                         if(e.id==data.id){
                             e["info"]=data;
                         }
-                        this.setState({
-                            album:this.state.album
-                        })
                     } )
                     .catch( error => console.log(error) )
                 })

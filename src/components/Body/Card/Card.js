@@ -46,10 +46,9 @@ class Card extends Component{
                             <p className='more' onClick={() => this.viewMore(id)}>{this.state.text}</p>
                         </section>
                         <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
-                         <p>{artist.name} has {this.props.dataAlbum.info ? this.props.dataAlbum.info.fans : ''} fans.</p>
+                        <p>{artist.name} has {this.props.dataAlbum.info ? this.props.dataAlbum.info.fans : ''} fans.</p>
                         <p>Tracks: {this.props.dataAlbum.info ? this.props.dataAlbum.info.nb_tracks : ''}</p>
                         <p>Release Date: {this.props.dataAlbum.info ? this.props.dataAlbum.info.release_date : ''}</p>
-                        <p>Genre{this.props.dataAlbum.info ? this.props.dataAlbum.info.genres.data[0].name : ''}</p>
                         </section>
                     </main>
                 </article>
