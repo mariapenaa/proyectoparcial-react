@@ -1,3 +1,7 @@
 .search{
     margin-top: 3%;
 }
+
+.inputSearch:placeholder-shown{
+    font-family: 'Antonio';
+}
