@@ -158,7 +158,7 @@ class Body extends Component{
                         {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} loadInfo={(id)=> this.viewMore(id)} clearInfo={()=> this.clearInfo()}/>)}
                     </section>
                     ):(
-                        <div><iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                        <div><iframe src="https://giphy.com/embed/3AMRa6DRUhMli" width="100%" height="100%" frameBorder="0" className="giphy" allowFullScreen></iframe></div>
                     )} 
                 </main>
             </React.Fragment>

@@ -32,6 +32,10 @@ main {
     color:white;
 }
 
+.giphy{
+    height: 20vh;
+}
+
 .cardInfo {
     display:flex;
     flex-direction:row;
