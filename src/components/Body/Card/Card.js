@@ -29,10 +29,7 @@ class Card extends Component{
             return(
                 <article className={`card ${this.props.grid ? 'gridCard' : 'colCard'}`}>
                     <section className={`cardNavigation ${this.props.grid ? 'cardNavGrid' : 'cardNavCol'}`}>
-                        <div>
-                            <i className="fas fa-chevron-left"></i>
-                            <i className="fas fa-chevron-right"></i>
-                        </div>
+                       
                         <i className="far fa-window-close" onClick={()=>this.props.remove(id)}></i>
                     </section>
                     <main className={`cardMain ${this.props.grid ? 'gridCard' : 'colCard'}`}>
