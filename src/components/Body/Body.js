@@ -25,11 +25,9 @@ class Body extends Component{
         fetch(urlChart)
             .then( response => response.json() )
             .then( data => {
-                console.log(data);
                 this.setState({
                     album: data.data,
                     albumesIniciales: data.data,
-                    isLoaded: true,
                 })
                 this.state.album.map(e=>{
                     fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${e.id}`)
@@ -41,19 +39,23 @@ class Body extends Component{
                     } )
                     .catch( error => console.log(error) )
                 })
+                this.setState({
+                    isLoaded:true,
+                })
+                console.log(this.state.album)
             } )
             .catch( error => console.log(error) )
+
     }
+
+
 
     cargarMas(){
         let urlMore = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums&top?limit=${this.state.nextUrl}`;
-
-
         fetch(urlMore)
         .then( response => response.json() )
         .then( data => {
             let newList = data.data.filter(element => element.position > this.state.nextUrl - 10)
-            console.log(newList);
           /*   this.setState({
                 album: data.data,
                 isLoaded: true,
@@ -64,6 +66,23 @@ class Body extends Component{
                 album: this.state.album.concat(newList),
                 albumesIniciales:this.state.album.concat(newList),
             })
+            this.state.album.map(e=>{
+                fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${e.id}`)
+                .then( response => response.json() )
+                .then( data => {
+                    if(e.id==data.id){
+                        e["info"]=data;
+                    }
+                    this.setState({
+                        album:this.state.album
+                    })
+                } )
+                .catch( error => console.log(error) )
+            })
+            this.setState({
+                isLoaded:true,
+            })
+            
         } )
         .catch( error => console.log(error) )
 
@@ -104,7 +123,6 @@ class Body extends Component{
            this.setState({
                infoAlbum:data
            }) 
-           console.log(this.state.infoAlbum)
         } )
 
         .catch( error => console.log(error) )
@@ -132,10 +150,13 @@ class Body extends Component{
                     <div className="bodyButton">
                         <button className='bodyCargarMas' type="button" onClick={()=>this.cargarMas()}>Cargar más tarjetas </button>
                     </div>
+                    {this.state.isLoaded ? (
                     <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
                         {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} loadInfo={(id)=> this.viewMore(id)} clearInfo={()=> this.clearInfo()}/>)}
                     </section>
-                    
+                    ):(
+                        <div><iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                    )} 
                 </main>
             </React.Fragment>
         )

@@ -3,7 +3,8 @@ footer {
     display:flex;
     flex-direction:row;
     justify-content: flex-end;
-    align-content:center
+    align-content:center;
+    font-family: 'Antonio';
 }
 
 .footer-team {

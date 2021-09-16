@@ -46,7 +46,31 @@ article {
     flex-direction: column;
 }
 .colCard .cardImage {
-    width:10%
+    width:14%
+}
+
+.colCard .cardInfo{
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    width: 50%;
+}
+
+.colCard .artistInfo{
+    width: 43%;
+}
+
+.colCard .cardShow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 45%;
+}
+
+.colCard .cardShow .info{
+    width: 43%;
+    font-size: 81%;
+    margin-right: 1%;
 }
 
 .artistInfo {
@@ -62,9 +86,7 @@ article {
     margin-top: 4%;
 }
 
-.cardNavigation {
 
-}
 
 .cardNavGrid {
     display:flex;
