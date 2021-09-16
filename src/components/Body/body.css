@@ -5,6 +5,10 @@
     justify-content: flex-end;
 }
 
+body{
+    background-color: rgb(41, 41, 41);
+}
+
 .bodyContainerGrid {
     width:100%;
     display:flex;
