@@ -20,7 +20,7 @@
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content:center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 main {

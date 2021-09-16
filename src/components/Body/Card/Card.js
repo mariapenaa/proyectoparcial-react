@@ -51,7 +51,7 @@ class Card extends Component{
                          <p className='info'>{artist.name} has {this.props.dataAlbum.info ? this.props.dataAlbum.info.fans : ''} fans.</p>
                         <p className='info'>Tracks: {this.props.dataAlbum.info ? this.props.dataAlbum.info.nb_tracks : ''}</p>
                         <p className='info'>Release Date: {this.props.dataAlbum.info ? this.props.dataAlbum.info.release_date : ''}</p>
-                        <p className='info'>Genre{this.props.dataAlbum.info ? this.props.dataAlbum.info.genres.data[0].name : ''}</p>
+                        <p className='info'>Genre: {this.props.dataAlbum.info ? this.props.dataAlbum.info.genres.data[0].name : ''}</p>
                         </section>
                     </main>
                 </article>
