@@ -98,9 +98,11 @@ class Body extends Component{
     
     searchAlbum(textoAFiltrar){
         let albumesFiltrados = this.state.albumesIniciales.filter( album =>  album.title.toLowerCase().includes(textoAFiltrar.toLowerCase()));
-         this.setState({
-            album: albumesFiltrados
+        this.setState({
+            album: albumesFiltrados,
         })   
+        console.log(this.state.album)
+
     }
 
     changeOrientation = () =>{
@@ -152,6 +154,8 @@ class Body extends Component{
                     </div>
                     {this.state.isLoaded ? (
                     <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
+                        <p>{this.state.resultadosEncontrados}</p>
+                        <p>{this.state.album.length <1  ? "No hay albumes con este nombre" : ""} </p>
                         {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} loadInfo={(id)=> this.viewMore(id)} clearInfo={()=> this.clearInfo()}/>)}
                     </section>
                     ):(
