@@ -19,7 +19,7 @@ class Body extends Component{
     }
 
     componentDidMount(){
-        let urlChart = `https://cors-anywhere.herokuapp.com/https://api.deezer.com/chart/0/albums`;
+        let urlChart = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums`;
 /*         let urlAlbum = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/302127' */
 
         fetch(urlChart)
