@@ -10,6 +10,7 @@ class Body extends Component{
         this.state={
             album: [],
             albumesIniciales: [],
+            ordenAlbumes: [],
             isLoaded: false,
             nextUrl: 20,
             grid:true,
@@ -28,6 +29,7 @@ class Body extends Component{
                 this.setState({
                     album: data.data,
                     albumesIniciales: data.data,
+                    ordenAlbumes:data.data,
                 })
                 this.state.album.map(e=>{
                     fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${e.id}`)
@@ -65,6 +67,7 @@ class Body extends Component{
                 isLoaded: true,
                 album: this.state.album.concat(newList),
                 albumesIniciales:this.state.album.concat(newList),
+                ordenAlbumes:this.state.album.concat(newList),
             })
             this.state.album.map(e=>{
                 fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${e.id}`)
@@ -101,8 +104,6 @@ class Body extends Component{
         this.setState({
             album: albumesFiltrados,
         })   
-        console.log(this.state.album)
-
     }
 
     changeOrientation = () =>{
@@ -117,6 +118,24 @@ class Body extends Component{
         }
         console.log(this.state.grid)
     }
+
+    sortAsc(){
+        let sorteados = this.state.ordenAlbumes.sort((a,b)=> a.title.localeCompare(b.title))
+         this.setState({
+            album:sorteados,
+        }) 
+        console.log(this.state.album)
+    }
+
+    sortDesc(){
+        let sorteados = this.state.ordenAlbumes.sort((a,b)=> a.title.localeCompare(b.title));
+        let reverse = sorteados.reverse()
+         this.setState({
+            album:reverse,
+        }) 
+        console.log(this.state.album)
+    }
+
     viewMore(id){
         let urlView = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${id}`
         fetch(urlView)
@@ -131,11 +150,7 @@ class Body extends Component{
 
     
     }
-     clearInfo(){
-         this.setState({
-             infoAlbum: {}
-         })
-     }
+
 
   
     render(){
@@ -144,7 +159,7 @@ class Body extends Component{
                 <header>
                     <img className='logo' src='/images/logo3.jpeg'/>
                     <section className="header-items">
-                        <Filter changeOrientation={()=>this.changeOrientation()} />
+                        <Filter changeOrientation={()=>this.changeOrientation()} sortAsc={()=>this.sortAsc()} sortDesc={()=>this.sortDesc()} grid={this.state.grid}/>
                         <Search  searchAlbum={(textoAFiltrar)=>this.searchAlbum(textoAFiltrar)}/>
                     </section>
                 </header>
@@ -155,10 +170,12 @@ class Body extends Component{
                     {this.state.isLoaded ? (
                     <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
                         {this.state.album.length <1  ? <p>"No hay albumes con este nombre" </p>: ""}
-                        {this.state.album.map((album,idx) => <Card key={album.name + idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} loadInfo={(id)=> this.viewMore(id)} clearInfo={()=> this.clearInfo()}/>)}
+                        {this.state.album.map((album,idx) => <Card key={idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} />)}
                     </section>
                     ):(
-                        <div><iframe src="https://giphy.com/embed/3oEjI6SIIHBdRxXI40" width="100%" height="100%" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+                        <div className="spinner-container">
+                            <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        </div>
                     )} 
                 </main>
             </React.Fragment>
