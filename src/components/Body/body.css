@@ -96,6 +96,11 @@ header {
   font-size:2rem;
 }
 
+.fa-align-justify:before {
+    margin: 10px;
+}
+.fa-th:before {
+    margin: 10px}
 /*SPINNER CSS*/
 .spinner-container{
     height:90vh;

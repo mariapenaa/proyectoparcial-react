@@ -22,7 +22,8 @@ class Search extends Component{
     render(){
         return(
             <form className='search' action="" onSubmit={(evento)=>this.evitarSubmit(evento)}>
-                <input type="text" onChange ={(cambioEvento)=> this.controlarCambios(cambioEvento)} value={this.state.valor} placeholder="Buscar album" className='inputSearch'/>
+                <input type="text" onChange ={(cambioEvento)=> this.controlarCambios(cambioEvento)} 
+                value={this.state.valor} placeholder="Buscar album" className='inputSearch'/>
             </form>
         )
     }
