@@ -137,22 +137,6 @@ class Body extends Component{
         console.log(this.state.album)
     }
 
-    viewMore(id){
-        let urlView = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${id}`
-        fetch(urlView)
-        .then( response => response.json() )
-        .then( data => {
-           this.setState({
-               infoAlbum:data
-           }) 
-        } )
-
-        .catch( error => console.log(error) )
-
-    
-    }
-
-
   
     render(){
         return(
