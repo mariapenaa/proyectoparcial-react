@@ -91,7 +91,9 @@ header {
 .bodyCargarMas:hover{
     cursor:pointer
 }
-
+.fa-align-justify:before {
+    margin: 10px;
+}
 /*SPINNER CSS*/
 .spinner-container{
     height:90vh;
