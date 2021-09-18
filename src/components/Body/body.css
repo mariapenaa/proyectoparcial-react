@@ -32,8 +32,8 @@ main {
     color:white;
 }
 
-.giphy{
-    height: 20vh;
+.main-container {
+  min-height:100vh;
 }
 
 .cardInfo {
@@ -90,6 +90,10 @@ header {
 
 .bodyCargarMas:hover{
     cursor:pointer
+}
+
+.nohay {
+  font-size:2rem;
 }
 
 /*SPINNER CSS*/

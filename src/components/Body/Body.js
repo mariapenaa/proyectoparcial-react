@@ -21,7 +21,6 @@ class Body extends Component{
 
     componentDidMount(){
         let urlChart = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums`;
-/*         let urlAlbum = 'https://cors-anywhere.herokuapp.com/https://api.deezer.com/album/302127' */
 
         fetch(urlChart)
             .then( response => response.json() )
@@ -58,10 +57,6 @@ class Body extends Component{
         .then( response => response.json() )
         .then( data => {
             let newList = data.data.filter(element => element.position > this.state.nextUrl - 10)
-          /*   this.setState({
-                album: data.data,
-                isLoaded: true,
-            }) */
             this.setState({
                 nextUrl: this.state.nextUrl+10,
                 isLoaded: true,
@@ -88,7 +83,6 @@ class Body extends Component{
             
         } )
         .catch( error => console.log(error) )
-
     }
 
     borrarTarjeta(tarjetaABorrar){
@@ -156,7 +150,7 @@ class Body extends Component{
   
     render(){
         return(
-            <React.Fragment>
+            <div className="main-container">
                 <header>
                     <img className='logo' src='/images/logo3.jpeg'/>
                     <section className="header-items">
@@ -170,7 +164,7 @@ class Body extends Component{
                     </div>
                     {this.state.isLoaded ? (
                     <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
-                        {this.state.album.length <1  ? <p>"No hay albumes con este nombre" </p>: ""}
+                        {this.state.album.length <1  ? <p className="nohay">No hay albumes con este nombre :(</p>: ""}
                         {this.state.album.map((album,idx) => <Card key={idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} />)}
                     </section>
                     ):(
@@ -179,7 +173,7 @@ class Body extends Component{
                         </div>
                     )} 
                 </main>
-            </React.Fragment>
+            </div>
         )
     }
 }
