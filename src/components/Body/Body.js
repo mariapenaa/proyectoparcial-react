@@ -95,7 +95,8 @@ class Body extends Component{
         let tarjetasQueQuedan = this.state.album.filter( a => a.id !== tarjetaABorrar);
          this.setState({
           album: tarjetasQueQuedan, 
-          albumesIniciales: tarjetasQueQuedan
+          albumesIniciales: tarjetasQueQuedan,
+          ordenAlbumes:tarjetasQueQuedan,
      }) 
     }
     
