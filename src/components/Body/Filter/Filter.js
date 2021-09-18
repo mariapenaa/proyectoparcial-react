@@ -16,9 +16,8 @@ class Filter extends Component{
     render(){
         return(
             <div className="filter-items">
-                <p onClick={()=>this.props.changeOrientation()}>Ordenar ASC/ DESC</p>
-                <i className="fas fa-th"  ></i>
-                <i className="fas fa-align-justify"></i>
+                <p>Ordenar <span onClick={()=>this.props.sortAsc()}>ASC</span>/  <span onClick={()=>this.props.sortDesc()}>DESC</span></p>
+                <i className={`fas ${this.props.grid ? 'fa-align-justify' : 'fa-th'}`} onClick={()=>this.props.changeOrientation()}></i>
             </div>
         )
     }

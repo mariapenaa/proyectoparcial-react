@@ -117,8 +117,9 @@ article.colCard{
 }
 
 .card {
-    transition: 0.4s;
+    transition: all .5s ease-in-out;
 }
+
 
 .card:hover{
     box-shadow: 0rem 0rem 10px 8px rgb(75, 73, 73);
