@@ -10,7 +10,7 @@ class Card extends Component{
         }
     }
 
-    viewMore(id){
+    viewMore(){
         if(this.state.viewMore){
             this.setState({
                 text: 'ver más',
@@ -42,7 +42,7 @@ class Card extends Component{
                                 <img className="cardArtistImage" src={`${artist.picture_small}`} alt="" />
                                 <p className="cardDescription">{artist.name}</p>
                             </div>
-                            <p className='more' onClick={() => this.viewMore(id)}>{this.state.text}</p>
+                            <p className='more' onClick={() => this.viewMore()}>{this.state.text}</p>
                         </section>
                         <section className={`${this.state.viewMore ? 'cardShow' : 'cardHide'}`}>
                          <p className='info'>{artist.name} tiene {this.props.dataAlbum.info ? this.props.dataAlbum.info.fans : ''} fans.</p>

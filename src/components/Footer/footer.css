@@ -7,7 +7,7 @@ footer {
     font-family: 'Antonio';
     
         position:absolute;
-        bottom:0;
+        bottom:-40px;
         width:100%;
         
 }
