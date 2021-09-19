@@ -12,6 +12,7 @@ class Body extends Component{
             albumesIniciales: [],
             ordenAlbumes: [],
             isLoaded: false,
+            isLoadedMore: true,
             nextUrl: 20,
             grid:true,
             infoAlbum: [],
@@ -52,6 +53,9 @@ class Body extends Component{
 
 
     cargarMas(){
+        this.setState({
+            isLoadedMore:false,
+        })
         let urlMore = `https://thingproxy.freeboard.io/fetch/https://api.deezer.com/chart/0/albums&top?limit=${this.state.nextUrl}`;
         fetch(urlMore)
         .then( response => response.json() )
@@ -59,7 +63,6 @@ class Body extends Component{
             let newList = data.data.filter(element => element.position > this.state.nextUrl - 10)
             this.setState({
                 nextUrl: this.state.nextUrl+10,
-                isLoaded: true,
                 album: this.state.album.concat(newList),
                 albumesIniciales:this.state.album.concat(newList),
                 ordenAlbumes:this.state.album.concat(newList),
@@ -78,7 +81,7 @@ class Body extends Component{
                 .catch( error => console.log(error) )
             })
             this.setState({
-                isLoaded:true,
+                isLoadedMore:true,
             })
             
         } )
@@ -150,6 +153,11 @@ class Body extends Component{
                     <section className={`${this.state.grid ? 'bodyContainerGrid' : 'bodyContainerCol'}`}>
                         {this.state.album.length <1  ? <p className="nohay">No hay albumes con este nombre :(</p>: ""}
                         {this.state.album.map((album,idx) => <Card key={idx} dataAlbum={album} dataInfo={this.state.infoAlbum}  grid={this.state.grid} remove={(tarjetaABorrar) => this.borrarTarjeta(tarjetaABorrar)} />)}
+                        {this.state.isLoadedMore ? " " : (
+                            <div className="spinner-container1">
+                                <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                            </div> 
+                        )}
                     </section>
                     ):(
                         <div className="spinner-container">

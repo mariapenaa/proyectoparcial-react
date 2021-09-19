@@ -106,7 +106,15 @@ header {
     height:90vh;
     display:flex;
     justify-content:center;
-    align-items:center
+    align-items:center;
+    width:100%;
+}
+
+.spinner-container1{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
 }
 
 .lds-roller {
