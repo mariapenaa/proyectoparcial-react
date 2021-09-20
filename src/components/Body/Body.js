@@ -35,7 +35,7 @@ class Body extends Component{
                     fetch(`https://thingproxy.freeboard.io/fetch/https://api.deezer.com/album/${e.id}`)
                     .then( response => response.json() )
                     .then( data => {
-                        if(e.id==data.id){
+                        if(e.id===data.id){
                             e["info"]=data;
                         }
                     } )
@@ -114,7 +114,6 @@ class Body extends Component{
                 grid:true
             })
         }
-        console.log(this.state.grid)
     }
 
     sortAsc(){
@@ -122,7 +121,6 @@ class Body extends Component{
          this.setState({
             album:sorteados,
         }) 
-        console.log(this.state.album)
     }
 
     sortDesc(){
@@ -130,8 +128,7 @@ class Body extends Component{
         let reverse = sorteados.reverse()
          this.setState({
             album:reverse,
-        }) 
-        console.log(this.state.album)
+        })
     }
 
   
@@ -139,7 +136,7 @@ class Body extends Component{
         return(
             <div className="main-container">
                 <header>
-                    <img className='logo' src='/images/logo3.jpeg'/>
+                    <img className='logo' src='/images/logo3.jpeg' alt='imagen del logo'/>
                     <section className="header-items">
                         <Filter changeOrientation={()=>this.changeOrientation()} sortAsc={()=>this.sortAsc()} sortDesc={()=>this.sortDesc()} grid={this.state.grid}/>
                         <Search  searchAlbum={(textoAFiltrar)=>this.searchAlbum(textoAFiltrar)}/>
