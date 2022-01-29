@@ -36,7 +36,7 @@ class Body extends Component{
                     .then( response => response.json() )
                     .then( data => {
                         if(e.id===data.id){
-                            e["info"]=data;
+                            return e["info"]=data;
                         }
                     } )
                     .catch( error => console.log(error) )
