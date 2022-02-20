@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/proyectoparcial-react/static/css/main.dc3a0de5.chunk.css",
+    "main.js": "/proyectoparcial-react/static/js/main.cd1f55c6.chunk.js",
+    "main.js.map": "/proyectoparcial-react/static/js/main.cd1f55c6.chunk.js.map",
+    "runtime-main.js": "/proyectoparcial-react/static/js/runtime-main.52ef77b7.js",
+    "runtime-main.js.map": "/proyectoparcial-react/static/js/runtime-main.52ef77b7.js.map",
+    "static/js/2.5889b0ef.chunk.js": "/proyectoparcial-react/static/js/2.5889b0ef.chunk.js",
+    "static/js/2.5889b0ef.chunk.js.map": "/proyectoparcial-react/static/js/2.5889b0ef.chunk.js.map",
+    "static/js/3.5559f7b6.chunk.js": "/proyectoparcial-react/static/js/3.5559f7b6.chunk.js",
+    "static/js/3.5559f7b6.chunk.js.map": "/proyectoparcial-react/static/js/3.5559f7b6.chunk.js.map",
+    "index.html": "/proyectoparcial-react/index.html",
+    "static/css/main.dc3a0de5.chunk.css.map": "/proyectoparcial-react/static/css/main.dc3a0de5.chunk.css.map",
+    "static/js/2.5889b0ef.chunk.js.LICENSE.txt": "/proyectoparcial-react/static/js/2.5889b0ef.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52ef77b7.js",
+    "static/js/2.5889b0ef.chunk.js",
+    "static/css/main.dc3a0de5.chunk.css",
+    "static/js/main.cd1f55c6.chunk.js"
+  ]
+}
